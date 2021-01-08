@@ -1,7 +1,7 @@
 {
   "name": "Chrome Cleaner",
   "description": "Clean up Chrome so I can use the Internet.",
-  "version": "0.1",
+  "version": "0.0.1",
   "background": {
     "scripts": ["background.js"],
     "persistent": false

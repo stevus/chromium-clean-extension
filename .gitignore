@@ -1,4 +1,5 @@
 *.crx
 *.pem
+*.zip
 build/extension.js
 node_modules
