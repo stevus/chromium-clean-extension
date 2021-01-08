@@ -1,16 +1,21 @@
 {
-  "name": "Chrome Cleaner",
-  "description": "Clean up Chrome so I can use the Internet.",
-  "version": "0.0.1",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
+  "browser_action": {
+    "default_title": "Clean Chrome"
+  },
+  "description": "Clean up Chrome so I can use the Internet.",
+  "icons": {
+    "16": "icon-16x16.png",
+    "48": "icon-48x48.png",
+    "128": "icon-128x128.png"
+  },
+  "manifest_version": 2,
+  "name": "Chrome Cleaner",
   "permissions": [
     "activeTab"
   ],
-  "browser_action": {
-      "default_title": "Clean Chrome"
-  },
-  "manifest_version": 2
+  "version": "0.0.1"
 }
