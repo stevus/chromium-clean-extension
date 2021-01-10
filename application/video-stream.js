@@ -1,3 +1,6 @@
+const whitelistedHosts = [
+  '6stream.xyz'
+]
 /**
  * Clear a page of Ads / chat boxes / any garbage that shouldn't be on the page
  * in the first place
@@ -5,6 +8,11 @@
  * @return {void}
  */
 function fixSportStreams() {
+
+  if(whitelistedHosts.indexOf(location.host) === -1) {
+    return
+  }
+
   // Get the `video` element - right now this is pretty assuming there is only one video
   // element and it's a <video> tag
   let vidElm = document.querySelector('video')
