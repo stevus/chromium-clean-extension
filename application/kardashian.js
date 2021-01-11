@@ -39,6 +39,10 @@ function runFilter() {
 
   nodes.forEach((node) => {
     try {
+      if(node === null) {
+        return
+      }
+
       const liNode = node.parentElement.closest('li')
       if(liNode !== null && typeof liNode.remove === 'function') {
         console.log(`Removed "${node.nodeValue}"`)
