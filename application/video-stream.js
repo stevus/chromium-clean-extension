@@ -35,6 +35,12 @@ function fixSportStreams() {
     vidElm.style.height = ''
     vidElm.style.width = ''
   }
+
+
+  for(i = 0; i < 10000; i++) {
+    // Clear anything running that's trying to reset the page or interfere with this JS
+    window.clearInterval(i)
+  }
 }
 
 module.exports = {
