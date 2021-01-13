@@ -1,5 +1,6 @@
 const whitelistedHosts = [
-  '6stream.xyz'
+  '6stream.xyz',
+  'www.youtube.com'
 ]
 /**
  * Clear a page of Ads / chat boxes / any garbage that shouldn't be on the page
