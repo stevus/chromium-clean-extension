@@ -5,8 +5,37 @@
   </head>
   <label for="clean-count">
     Number of Kardashian content cleared:
+  </label><br/>
+  <input
+    id="kardashianCleanCount"
+    name="clean-count"
+    readonly
+    type="text" />
+  <br/>
+  <label for="whitelist-hosts">
+    Host Whitelist
   </label>
-  <input type="text" readonly id="kardashianCleanCount" />
+  <br/>
+  <textarea
+    cols="30"
+    id="whitelistedHosts"
+    name="whitelist-hosts"
+    rows="15"
+    style="resize: none;"></textarea>
+  <br/>
+  <label for="kardashian-terms">
+    Kardashian Filter Terms
+  </label><br/>
+  <textarea
+    cols="30"
+    id="kardashianTerms"
+    name="kardashian-terms"
+    rows="15"
+    style="resize: none;"></textarea>
+  <br/>
+  <button id="saveOptions">
+    Save
+  </button>
   <script src="options.js"></script>
 </body>
 </html>

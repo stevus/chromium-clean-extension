@@ -1,14 +1,10 @@
-const whitelistedHosts = [
-  '6stream.xyz',
-  'www.youtube.com'
-]
 /**
  * Clear a page of Ads / chat boxes / any garbage that shouldn't be on the page
  * in the first place
  *
  * @return {void}
  */
-function fixSportStreams() {
+function fixSportStreams(whitelistedHosts = []) {
 
   if(whitelistedHosts.indexOf(location.host) === -1) {
     return

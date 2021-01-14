@@ -1,10 +1,3 @@
-const blacklistWords = [
-  'Kim', 'Kanye', 'Kayne', 'Kardashian', 'Kanye West',
-  'Democrat', 'Republican', 'Pelosi', 'Trump', 'Biden', 'Obama',
-  'Royal',
-]
-const regex = new RegExp(blacklistWords.join('|'), 'i')
-
 /**
  * [updateMetric description]
  * @param  {[type]} kardashianCountCleared [description]
@@ -18,7 +11,14 @@ function updateMetric(kardashianCountCleared) {
   })
 }
 
-function runFilter() {
+/**
+ * Logic to process the filtering
+ * @param  {Array} filterTerms Array of strings that will be filtered out of page content
+ * @return {void}
+ */
+function runFilter(filterTerms) {
+
+  const regex = new RegExp(filterTerms.join('|'), 'i')
 
   // By default, the TreeWalker will show all of the matching DOM nodes that it
   // finds. However, we can use an optional "filter" method that will inform the
@@ -75,15 +75,16 @@ function runFilter() {
 /**
  * Filter out content that doesn't need to be seen
  *
+ * @param  {Array} filterTerms Array of strings that will be filtered out of page content
  * @return {void}
  */
-function filterKardashian() {
+function filterKardashian(filterTerms = []) {
 
   if (!document.createTreeWalker) {
     throw(new Error('Browser does not support createTreeWalker()'))
   }
 
-  runFilter()
+  runFilter(filterTerms)
 
   // @link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
   const observer = new MutationObserver(runFilter)

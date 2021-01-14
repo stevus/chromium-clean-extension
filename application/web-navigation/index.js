@@ -1,5 +1,9 @@
+const { KARDASHIAN_TERMS } = require('../constants')
 const { clearGdPrConsentNotices } = require('./gdpr')
 const { filterKardashian } = require('./kardashian')
 
 clearGdPrConsentNotices()
-filterKardashian()
+
+chrome.storage.local.get({ "kardashianTerms": KARDASHIAN_TERMS }, function(obj) {
+  filterKardashian(obj.kardashianTerms)
+})
