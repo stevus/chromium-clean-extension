@@ -5,6 +5,7 @@ const config = {
     entry: {
       'background': './application/index.js',
       'browser-action': './application/browser-action/index.js',
+      'options': './application/options/index.js',
       'web-navigation': './application/web-navigation/index.js'
     },
     output: {

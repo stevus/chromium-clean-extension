@@ -14,10 +14,12 @@
   },
   "manifest_version": 2,
   "name": "Chrome Cleaner",
+  "options_page": "options.html",
   "permissions": [
     "activeTab",
     "http://*/",
     "https://*/",
+    "storage",
     "webNavigation"
   ],
   "version": "0.0.1"

@@ -5,6 +5,19 @@ const blacklistWords = [
 ]
 const regex = new RegExp(blacklistWords.join('|'), 'i')
 
+/**
+ * [updateMetric description]
+ * @param  {[type]} kardashianCountCleared [description]
+ * @return {void}
+ */
+function updateMetric(kardashianCountCleared) {
+
+  chrome.storage.local.get({ "kardashianCountCleared": 0 }, function(obj) {
+    const newCountCleared = kardashianCountCleared + obj.kardashianCountCleared || 0
+    chrome.storage.local.set({ "kardashianCountCleared": newCountCleared }, function() {})
+  })
+}
+
 function runFilter() {
 
   // By default, the TreeWalker will show all of the matching DOM nodes that it
@@ -37,6 +50,7 @@ function runFilter() {
     nodes.push(treeWalker.currentNode)
   }
 
+  let numCleared = 0
   nodes.forEach((node) => {
     try {
       if(node === null) {
@@ -45,13 +59,17 @@ function runFilter() {
 
       const liNode = node.parentElement.closest('li')
       if(liNode !== null && typeof liNode.remove === 'function') {
-        console.log(`Removed "${node.nodeValue}"`)
         liNode.remove()
+        numCleared = numCleared + 1
       }
     } catch(e) {
       console.log(e)
     }
   })
+
+  if(numCleared > 0) {
+    updateMetric(numCleared)
+  }
 }
 
 /**
